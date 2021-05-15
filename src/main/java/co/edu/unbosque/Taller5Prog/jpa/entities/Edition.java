@@ -1,9 +1,7 @@
 package co.edu.unbosque.Taller5Prog.jpa.entities;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "Edition") // Optional
@@ -33,7 +31,11 @@ public class Edition {
     @ManyToMany(mappedBy = "editions", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private Set<Library> libraries = new HashSet<>();
 
-    public Edition() {}
+    @OneToMany(mappedBy = "edition", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    private List<Rent> rents = new ArrayList<>();
+
+    public Edition() {
+    }
 
     public Edition(String description, Date releaseYear) {
         this.description = description;

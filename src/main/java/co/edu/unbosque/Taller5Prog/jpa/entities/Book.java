@@ -39,11 +39,7 @@ public class Book {
         this.isbn = isbn;
     }
 
-    public Book(Integer bookId, String title, String isbn) {
-        this.bookId = bookId;
-        this.title = title;
-        this.isbn = isbn;
-    }
+
 
     public Integer getBookId() {
         return bookId;
