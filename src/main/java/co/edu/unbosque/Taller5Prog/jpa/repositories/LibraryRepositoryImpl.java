@@ -36,14 +36,29 @@ public class LibraryRepositoryImpl implements LibraryRepository {
     public void modificar(int id, String newName) {
         Library library = entityManager.find(Library.class, id);
         if (library != null) {
-
-            entityManager.getTransaction().begin();
-            library.setName(newName);
-            entityManager.getTransaction().commit();
-
-        } else {
-            System.err.println("efe");
+            try {
+                entityManager.getTransaction().begin();
+                library.setName(newName);
+                entityManager.getTransaction().commit();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
+    public void delete(int id) {
+        Library library = entityManager.find(Library.class, id);
+        if (library != null) {
+            try {
+                entityManager.getTransaction().begin();
+                entityManager.remove(library);
+                entityManager.getTransaction().commit();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+
+            }
+        }
+
+    }
 }

@@ -1,4 +1,4 @@
-function printTable() {
+function printSelect() {
     var xhr = new XMLHttpRequest();
 
     xhr.onreadystatechange = function () {
@@ -17,4 +17,4 @@ function printTable() {
     xhr.send(null)
 }
 
-printTable();
+printSelect();
