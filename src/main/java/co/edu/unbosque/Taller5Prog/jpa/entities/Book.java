@@ -1,6 +1,7 @@
 package co.edu.unbosque.Taller5Prog.jpa.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Book") // Optional
@@ -27,10 +28,11 @@ public class Book {
     @JoinColumn(name = "author_id")
     private Author author;
 
-    @OneToOne(mappedBy = "book")
-    private Edition edition;
+    @OneToMany(mappedBy = "book", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Edition> edition;
 
-    public Book() {}
+    public Book() {
+    }
 
     public Book(String title, String isbn) {
         this.title = title;
@@ -75,10 +77,16 @@ public class Book {
         this.author = author;
     }
 
-    public Edition getEdition() { return edition; }
+    public List<Edition> getEdition() {
+        return edition;
+    }
+
+    public void setEdition(List<Edition> edition) {
+        this.edition = edition;
+    }
 
     public void addEdition(Edition edition) {
-        this.edition = edition;
+        this.edition.add(edition);
         edition.setBook(this);
     }
 
