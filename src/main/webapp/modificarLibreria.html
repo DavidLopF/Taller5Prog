@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="Css/crearAuthor.css">
+    <title>Libreria 4 patas</title>
+</head>
+
+<body>
+
+<div id="header">
+    <ul class="nav">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="">Author</a>
+            <ul>
+                <li><a href="crearAuthor.html">Crear Author</a></li>
+                <li><a href="modificarAuthor.html">Modificar Author</a></li>
+                <li><a href="eliminarAuthor.html">Eliminar Author</a></li>
+                </li>
+            </ul>
+        </li>
+        <li><a href="">Libro</a>
+            <ul>
+                <li><a href="crearLibro.html">Crear Libro</a></li>
+                <li><a href="modificarLibro.html">Modificar Libro</a></li>
+                <li><a href="eliminarLibro.html">Eliminar Libro</a></li>
+            </ul>
+        </li>
+        <li><a href="">Edicion</a>
+            <ul>
+                <li><a href="mostrarTablaEdiciones.html">Lista de Ediciones</a></li>
+                <li><a href="crearEdicion.html">Crear Edicion</a></li>
+                <li><a href="modificarEdicion.html">Modificar Edicion</a></li>
+                <li><a href="eliminarEdicion.html">Eliminar Edicion</a></li>
+            </ul>
+        </li>
+        <li><a href="">Libreria</a>
+            <ul>
+                <li><a href="crearLibreria.html">Crear Libreria</a></li>
+                <li><a href="modificarLibreria.html">Modificar Libreria</a></li>
+                <li><a href="eliminarLibreria.html">Eliminar Libreria</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class="container">
+    <form action="modificarLibreria" class="form">
+        <div class="form-header">
+            <h1 class="form-title">Modificar Libreria</h1>
+        </div>
+
+        <label for="selectLibreria" class="form-label">Selecciona la libreria a Modificar<select name="selectLibreria"
+                                                                                                 id="selectLibreria"
+                                                                                                 class="form-selec"
+                                                                                                 required>
+            <option class="form-option"></option>
+        </select></label>
+
+        <label for="libreria" class="form-label">Ingrese el nuevo nombre de la Libreria:</label>
+        <input type="text" name="libreria" id="libreria" class="form-input" placeholder="Ingrese el titulo del libro"
+               required>
+
+
+        <input type="submit" value="Enviar" onclick="" class="submit">
+    </form>
+</div>
+<script type="text/javascript" src="Js/selectLibreria.js"></script>
+</body>
+</html>

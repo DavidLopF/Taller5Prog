@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Taller5Prog:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>Taller5Prog</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="Taller5Prog-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="Taller5Prog:war exploded" />
+    </root>
+  </artifact>
+</component>
