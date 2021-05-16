@@ -13,60 +13,54 @@
 </head>
 
 <body>
-    <div id="header">
-        <ul class="nav">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="">Cliente</a>
-                <ul>
-                    <li><a href="CreateCustomer.html">Crear Cliente</a></li>
-                    <li><a href="ModificateCustomer.html">Modificar Cliente</a></li>
-                    <li><a href="DeleteCustomer.html">Eliminar Cliente</a></li>
-                </ul>
-            </li>
-            <li><a href="">Author</a>
-                <ul>
-                    <li><a href="crearAuthor.html">Crear Author</a></li>
-                    <li><a href="modificarAuthor.html">Modificar Author</a></li>
-                    <li><a href="eliminarAuthor.html">Eliminar Author</a></li>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="">Libro</a>
-                <ul>
-                    <li><a href="crearLibro.html">Crear Libro</a></li>
-                    <li><a href="modificarLibro.html">Modificar Libro</a></li>
-                    <li><a href="eliminarLibro.html">Eliminar Libro</a></li>
-                </ul>
-            </li>
-            <li><a href="">Edicion</a>
-                <ul>
-                    <li><a href="mostrarTablaEdiciones.html">Lista de Ediciones</a></li>
-                    <li><a href="crearEdicion.html">Crear Edicion</a></li>
-                    <li><a href="modificarEdicion.html">Modificar Edicion</a></li>
-                    <li><a href="eliminarEdicion.html">Eliminar Edicion</a></li>
-                </ul>
-            </li>
-            <li><a href="">Libreria</a>
-                <ul>
-                    <li><a href="crearLibreria.html">Crear Libreria</a></li>
-                    <li><a href="modificarLibreria.html">Modificar Libreria</a></li>
-                    <li><a href="eliminarLibreria.html">Eliminar Libreria</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <div class="container">
-        <form action="" class="form">
-            <div class="form-header">
-                <h1 class="form-title">Eliminar Author</h1>
-            </div>
-            <label for="selectAuthor" class="form-label">Selecciona author a eliminar <select name="selectAuthor" id="selectAuthor" class="form-selec" required>
-                <option class="form-option">ejemplo</option>
-            </select></label>
+<div id="header">
+    <ul class="nav">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="">Author</a>
+            <ul>
+                <li><a href="crearAuthor.html">Crear Author</a></li>
+                <li><a href="modificarAuthor.html">Modificar Author</a></li>
+                <li><a href="eliminarAuthor.html">Eliminar Author</a></li>
+                </li>
+            </ul>
+        </li>
+        <li><a href="">Libro</a>
+            <ul>
+                <li><a href="crearLibro.html">Crear Libro</a></li>
+                <li><a href="modificarLibro.html">Modificar Libro</a></li>
+                <li><a href="eliminarLibro.html">Eliminar Libro</a></li>
+            </ul>
+        </li>
+        <li><a href="">Edicion</a>
+            <ul>
+                <li><a href="mostrarTablaEdiciones.html">Lista de Ediciones</a></li>
+                <li><a href="crearEdicion.html">Crear Edicion</a></li>
+                <li><a href="modificarEdicion.html">Modificar Edicion</a></li>
+                <li><a href="eliminarEdicion.html">Eliminar Edicion</a></li>
+            </ul>
+        </li>
+        <li><a href="">Libreria</a>
+            <ul>
+                <li><a href="crearLibreria.html">Crear Libreria</a></li>
+                <li><a href="modificarLibreria.html">Modificar Libreria</a></li>
+                <li><a href="eliminarLibreria.html">Eliminar Libreria</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class="container">
+    <form action="delete-author" class="form">
+        <div class="form-header">
+            <h1 class="form-title">Eliminar Author</h1>
+        </div>
+        <label for="selectAuthor" class="form-label">Selecciona author a eliminar <select name="selectAuthor" id="selectAuthor" class="form-selec" required>
+            <option class="form-option">ejemplo</option>
+        </select></label>
 
-            <input type="submit" value="Enviar" onclick="" class="submit">
-        </form>
-       
-    </div>
+        <input type="submit" value="Enviar" onclick="" class="submit">
+    </form>
+
+</div>
+<script src="Js/tablaModificarAutor.js"></script>
 </body>
 </html>
