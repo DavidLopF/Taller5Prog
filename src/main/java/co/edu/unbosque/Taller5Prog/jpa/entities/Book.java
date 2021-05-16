@@ -3,6 +3,7 @@ package co.edu.unbosque.Taller5Prog.jpa.entities;
 import javax.persistence.*;
 import java.util.List;
 
+
 @Entity
 @Table(name = "Book") // Optional
 @NamedQueries({
@@ -20,6 +21,9 @@ public class Book {
 
     @Column(nullable = false, unique = true)
     private String title;
+
+    @Column(name = "genre")
+    private String genre;
 
     @Column(name = "isbn_number")
     private String isbn;
@@ -39,7 +43,19 @@ public class Book {
         this.isbn = isbn;
     }
 
+    public Book(String title, String isbn, String genre) {
+        this.title = title;
+        this.isbn = isbn;
+        this.genre = genre;
+    }
 
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
 
     public Integer getBookId() {
         return bookId;
@@ -87,4 +103,3 @@ public class Book {
     }
 
 }
-

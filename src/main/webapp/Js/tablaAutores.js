@@ -14,7 +14,7 @@ function printTable(){
             }
         }
     }
-    xhr.open('GET', 'http://localhost:8080/JPATutorial-1.0-SNAPSHOT/list-authors', true);
+    xhr.open('GET', 'http://localhost:8080/Taller5Prog-1.0-SNAPSHOT/list-authors', true);
     xhr.send(null)
 
 }

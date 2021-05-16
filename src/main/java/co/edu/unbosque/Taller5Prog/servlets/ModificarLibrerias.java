@@ -14,12 +14,12 @@ public class ModificarLibrerias extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         response.setContentType("text/html");
-
         int id = Integer.parseInt(request.getParameter("selectLibreria"));
 
         String newName = request.getParameter("libreria");
 
         LibraryService libraryService = new LibraryService();
+
 
         libraryService.modificarLibreria(id, newName);
 

@@ -6,16 +6,17 @@ public class AuthorPOJO {
 
     private String name;
 
+    private String country;
+
     private Integer numBooks;
-
-
 
     public AuthorPOJO() { }
 
-    public AuthorPOJO(Integer authorId, String name, Integer numBooks) {
+    public AuthorPOJO(Integer authorId, String name, Integer numBooks, String country) {
         this.authorId = authorId;
         this.name = name;
         this.numBooks = numBooks;
+        this.country = country;
     }
 
     public Integer getAuthorId() {
@@ -42,4 +43,11 @@ public class AuthorPOJO {
         this.numBooks = numBooks;
     }
 
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
 }

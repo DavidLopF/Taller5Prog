@@ -13,5 +13,8 @@ public interface AuthorRepository {
     Optional<Author> save(Author author);
 
     void deleteById(Integer id);
+    void modificar(int id, String fullname, String country);
+
+    Author encontrar(Integer id);
 
 }
