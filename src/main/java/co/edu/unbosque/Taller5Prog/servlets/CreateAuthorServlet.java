@@ -22,7 +22,7 @@ public class CreateAuthorServlet extends HttpServlet {
         AuthorService authorService = new AuthorService();
         authorService.saveAuthor(name, apellido, ciudad);
 
-        response.sendRedirect("./crearAuthor.html");
+        response.sendRedirect("./index.html");
     }
 
 }
