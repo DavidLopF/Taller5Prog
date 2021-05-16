@@ -56,24 +56,37 @@
         </ul>
     </div>
     <div class="container">
-        <form action="" class="form">
+        <form action="/create-author" class="form">
             <div class="form-header">
-                <h1 class="form-title">Modificar Edicion</h1>
+                <h1 class="form-title">Eliminar cliente</h1>
             </div>
+            <label for="email" class="form-label">Email</label>
+            <input type="text" name="email" id="email" class="form-input" placeholder="Ingrese Email" required>
+        
+            <label for="author" class="form-label">Ingrese tu nombre </label>
+            <input type="text" name="author" id="author" class="form-input" placeholder="Ingrese nombre" required>
 
-            <label for="selectLibro" class="form-label">Selecciona libro a modificar <select name="selectLibro" id="selectLibro" class="form-selec" required>
+            <label for="lastName" class="form-label">Ingrese tu apellido</label>
+            <input type="text" name="lastName" id="lastName" class="form-input" placeholder="Ingrese apellido" required>
+
+            <label for="selectGen" class="form-label">Selecciona genero <select name="selectGen" id="selectGen" class="form-selec" required>
                 <option class="form-option"></option>
+                <option class="form-option">Femenino</option>
+                <option class="form-option">Masculino</option>
             </select></label>
 
-            <label for="description" class="form-label">Ingresa la nueva descripcion de la edicion: </label>
-            <input type="text" name="description" id="description" class="form-input" placeholder="Descripcion de la edicion" required>
+            <label for="date" class="form-label">Ingresa tu fecha de nacimiento</label>
+            <input type="date" name="date" id="date" class="form-input" required>
 
-            <label for="lastName" class="form-label">Ingresa el nuevo Año de lanzamiento de la edicion: </label>
-            <input type="number" name="lastName" id="lastName" class="form-input" placeholder="Año de lanzamiento de la edicion" required>
+           
 
-            <input type="submit" value="Enviar" onclick="" class="submit">
+            <button type="submit" value="Enviar"  onclick="red()" class="submit">
         </form>
-       
     </div>
+    <script>
+        function red() { 
+           location.href = "../webapp/index.html"; 
+        }
+     </script>
 </body>
 </html>
