@@ -5,14 +5,14 @@ import java.util.Date;
 public class EdtionPOJO {
 
     private int edition_id;
-    private String descripcion;
+    private String desc;
     private Date release_year;
     private int book_id;
     private String libro;
 
     public EdtionPOJO(int edition_id, String descripcion, Date release_year, int book_id ,String libro) {
         this.edition_id = edition_id;
-        this.descripcion = descripcion;
+        this.desc = descripcion;
         this.release_year = release_year;
         this.book_id = book_id;
         this.libro = libro;
@@ -34,12 +34,12 @@ public class EdtionPOJO {
         this.edition_id = edtition_id;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     public Date getRelease_year() {
@@ -61,10 +61,11 @@ public class EdtionPOJO {
     @Override
     public String toString() {
         return "EdtionPOJO{" +
-                "edtition_id=" + edition_id +
-                ", descripcion='" + descripcion + '\'' +
+                "edition_id=" + edition_id +
+                ", desc='" + desc + '\'' +
                 ", release_year=" + release_year +
                 ", book_id=" + book_id +
+                ", libro='" + libro + '\'' +
                 '}';
     }
 }
