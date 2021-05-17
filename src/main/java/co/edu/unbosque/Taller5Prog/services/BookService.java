@@ -41,6 +41,15 @@ public class BookService {
         return booksPOJO;
     }
 
+    public Optional<Book> findByTitle(String title){
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        bookRepository = new BookRepositoryImpl(entityManager);
+        Optional<Book> book =bookRepository.findByTitle(title);
+        return book;
+    }
+
     public void saveBook(String title, String isbn, Integer authorId, String genero) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
