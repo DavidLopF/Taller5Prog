@@ -73,6 +73,25 @@
 
         <label for="isbn" class="form-label">Ingrese el ISBN del libro:</label>
         <input type="number" name="isbn" id="isbn" class="form-input" placeholder="Ingrese el ISBN del libro" required>
+      
+              <input type="submit" value="Enviar" onclick="" class="submit">
+        </form>
+    </div>
+    <div id="table-container">
+        <table class="table table-primary table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Titulo</th>
+                    <th>ISBN</th>
+                    <th>Genero</th>
+                    <th>Libreria</th>
+                    <th>Libro</th>
+                </tr>
+            </thead>
+            <tbody id="res"></tbody>
+        </table>
+    </div>
 
         <label for="selectLibro" class="form-label">Selecciona el genero del libro <select name="selectLibro"
                                                                                            id="selectLibro"
@@ -89,8 +108,6 @@
             <option class="form-option">Poéticos</option>
             <option class="form-option">Juveniles</option>
         </select></label>
-
-
 
         <input type="submit" value="Enviar" onclick="" class="submit">
     </form>
@@ -112,5 +129,6 @@
 </div>
 <script src="Js/selectLibreria.js"></script>
 <script src="Js/tablaCrearLibro.js"></script>
+
 </body>
 </html>
