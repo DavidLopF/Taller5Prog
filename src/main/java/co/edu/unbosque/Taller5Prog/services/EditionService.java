@@ -69,11 +69,23 @@ public class EditionService {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-        EditionRepostoryImpl editionRepostory = new EditionRepostoryImpl(entityManager);
-        editionRepostory.update(des, year, id_book);
+        editionRepository = new EditionRepostoryImpl(entityManager);
+        editionRepository.update(des, year, id_book);
 
         entityManager.close();
         entityManagerFactory.close();
 
+    }
+
+    public void deleteBy(int id) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        editionRepository = new EditionRepostoryImpl(entityManager);
+        editionRepository.delete(id);
+
+        entityManager.close();
+        entityManagerFactory.close();
     }
 }

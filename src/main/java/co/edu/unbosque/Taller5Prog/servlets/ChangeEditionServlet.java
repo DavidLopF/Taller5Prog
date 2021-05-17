@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -18,7 +19,7 @@ public class ChangeEditionServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
 
-        Integer id_book = Integer.parseInt(request.getParameter("selectEdition"));
+        Integer id_book = Integer.parseInt(request.getParameter("selectEdicion"));
         String descripcion = request.getParameter("description");
         String year = request.getParameter("year");
         SimpleDateFormat format = new SimpleDateFormat("yyyy");
@@ -32,7 +33,8 @@ public class ChangeEditionServlet extends HttpServlet {
         EditionService editionService = new EditionService();
         editionService.updateEdition(id_book, descripcion, date);
 
-        response.sendRedirect("crearEdition.html");
+
+        response.sendRedirect("crearEdicion.html");
 
     }
 }
