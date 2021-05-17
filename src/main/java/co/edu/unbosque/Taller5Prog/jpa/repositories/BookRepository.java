@@ -1,6 +1,7 @@
 package co.edu.unbosque.Taller5Prog.jpa.repositories;
 
 import co.edu.unbosque.Taller5Prog.jpa.entities.Book;
+import co.edu.unbosque.Taller5Prog.jpa.entities.Edition;
 
 
 import java.util.List;
@@ -18,4 +19,7 @@ public interface BookRepository {
 
     Optional<Book> save(Book book);
 
+    void delete(Integer id);
+
+    void modificar(int id, String newName, String newIsbn, String newGener);
 }

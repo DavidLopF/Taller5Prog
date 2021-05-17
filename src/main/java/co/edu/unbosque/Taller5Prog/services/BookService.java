@@ -19,9 +19,10 @@ public class BookService {
 
     AuthorRepositoryImpl authorRepository;
     BookRepositoryImpl bookRepository;
+    EditionService editionService;
 
 
-    public List<BookPOJO> listBooks(){
+    public List<BookPOJO> listBooks() {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
@@ -34,13 +35,13 @@ public class BookService {
         List<BookPOJO> booksPOJO = new ArrayList<>();
 
         for (Book book : books) {
-            booksPOJO.add(new BookPOJO(book.getBookId(),book.getTitle(),book.getIsbn(), book.getGenre()));
+            booksPOJO.add(new BookPOJO(book.getBookId(), book.getTitle(), book.getIsbn(), book.getGenre()));
         }
 
         return booksPOJO;
     }
 
-    public void saveBook(String title, String isbn, Integer authorId,String genero) {
+    public void saveBook(String title, String isbn, Integer authorId, String genero) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -59,6 +60,28 @@ public class BookService {
 
         return;
 
+    }
+
+    public void deleteBook(Integer id) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        bookRepository = new BookRepositoryImpl(entityManager);
+        bookRepository.delete(id);
+
+        entityManager.close();
+        entityManagerFactory.close();
+    }
+
+    public void modificarLibro(int id, String newName, String newIsbn, String newGener) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        bookRepository = new BookRepositoryImpl(entityManager);
+        bookRepository.modificar(id, newName, newIsbn, newGener);
+
+        entityManager.close();
+        entityManagerFactory.close();
     }
 
 }

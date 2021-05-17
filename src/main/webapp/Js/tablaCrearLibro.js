@@ -4,6 +4,7 @@ function printTable(){
         if (xhr.readyState == 4) {
             var data = JSON.parse(xhr.responseText);
             var tbodyRef = document.getElementById("res")
+            console.log(data)
             for (let i = 0; i < data.length; i++) {
                 tbodyRef.innerHTML += `
                 <tr>
