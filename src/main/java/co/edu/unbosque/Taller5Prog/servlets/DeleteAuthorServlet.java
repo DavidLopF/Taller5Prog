@@ -15,12 +15,12 @@ public class DeleteAuthorServlet extends HttpServlet {
 
         response.setContentType("text/html");
 
-        Integer authorId = Integer.parseInt(request.getParameter("authorId"));
+        int authorId = Integer.parseInt(request.getParameter("selectAuthor"));
 
         AuthorService authorService = new AuthorService();
         authorService.deleteAuthor(authorId);
 
-        response.sendRedirect("./index.jsp");
+        response.sendRedirect("crearAuthor.html");
     }
 
 }

@@ -1,9 +1,27 @@
 package co.edu.unbosque.Taller5Prog.jpa.repositories;
 
-public class CustomerImplement implements CustomerRepository{
-    @Override
-    public void save(String email, String first_name, String last_name, String gender, int age) {
+import co.edu.unbosque.Taller5Prog.jpa.entities.Customer;
 
+import javax.persistence.EntityManager;
+
+public class CustomerImplement implements CustomerRepository {
+
+    private EntityManager entityManager;
+
+    public CustomerImplement(EntityManager entityManager) {
+
+        this.entityManager = entityManager;
+    }
+
+    @Override
+    public void save(Customer customer) {
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.persist(customer);
+            entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

@@ -16,6 +16,7 @@ public class AuthorService {
 
     AuthorRepository authorRepository;
 
+
     public List<AuthorPOJO> listAuthors() {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
@@ -32,8 +33,8 @@ public class AuthorService {
             authorsPOJO.add(new AuthorPOJO(
                     author.getAuthorId(),
                     author.getName(),
-                    author.getBooks().size()
-
+                    author.getBooks().size(),
+                    author.getCountry()
             ));
         }
 
@@ -41,14 +42,14 @@ public class AuthorService {
 
     }
 
-    public Author saveAuthor(String name, String lastName, String country) {
+    public Author saveAuthor(String name, String country) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         authorRepository = new AuthorRepositoryImpl(entityManager);
 
-        Author author = new Author(name);
+        Author author = new Author(name, country);
         Author persistedAuthor = authorRepository.save(author).get();
 
         entityManager.close();
@@ -56,6 +57,22 @@ public class AuthorService {
 
         return persistedAuthor;
 
+    }
+
+    public Author encontrarAutorDadoId(int id){
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        authorRepository = new AuthorRepositoryImpl(entityManager);
+        return authorRepository.encontrar(id);
+    }
+
+    public void modificarAutor(int id, String fullname, String country){
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        authorRepository = new AuthorRepositoryImpl(entityManager);
+        authorRepository.modificar(id,fullname,country);
     }
 
     public void deleteAuthor(Integer authorId) {
