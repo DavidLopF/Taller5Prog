@@ -15,6 +15,13 @@
     <div id="header">
         <ul class="nav">
             <li><a href="index.html">Inicio</a></li>
+            <li><a href="">Cliente</a>
+                <ul>
+                    <li><a href="CreateCustomer.html">Crear Cliente</a></li>
+                    <li><a href="ModificateCustomer.html">Modificar Cliente</a></li>
+                    <li><a href="DeleteCustomer.html">Eliminar Cliente</a></li>
+                </ul>
+            </li>
             <li><a href="">Author</a>
                 <ul>
                     <li><a href="crearAuthor.html">Crear Author</a></li>
@@ -66,11 +73,46 @@
                     <th>ID</th>
                     <th>Descripcion</th>
                     <th>Año de Lanzamiento</th>
+                    <th>Rentar Edicion</th>
                 </tr>
             </thead>
-            <tbody id="res"></tbody>
+            <tbody id="res">
+                <td></td>
+                <td></td>
+                <td> </td>
+                <td>
+                    <button type="button" class="btn btn-primary" onclick="openForm()"><i class="far fa-eye"></i></button>
+                </td>
+            </tbody>
         </table>
     </div>
-    
+    <div class="form-popup" id="myForm">
+        <form action="" class="form-container">
+          <h1>Rentar un Libro</h1>
+      
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" required>
+      
+          <label for="psw"><b>ID Edicion: </b></label>
+      
+          <label for="date"><b>Selecciona la fecha en la que estas rentando la edicion: </b></label>
+          <input type ="date" id="date" name="date">
+      
+          
+          <button type="submit" class="btn">Rentar libro!</button>
+      
+          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+      </div>
+
+      <script>
+      function openForm() {
+        document.getElementById("myForm").style.display = "block";
+      }
+      
+      function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+      }
+      </script>
 </body>
 </html>

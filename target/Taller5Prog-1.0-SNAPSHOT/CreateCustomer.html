@@ -57,29 +57,36 @@
     </ul>
 </div>
 <div class="container">
-    <form action="create-library" class="form">
+    <form action="createCustomer" class="form">
         <div class="form-header">
-            <h1 class="form-title">Crear Libreria</h1>
+            <h1 class="form-title">Crear cliente</h1>
         </div>
+        <label for="email" class="form-label">Email</label>
+        <input type="text" name="email" id="email" class="form-input" placeholder="Ingrese Email" required>
 
-        <label for="libro" class="form-label">Ingrese el nombre de la Libreria:</label>
-        <input type="text" name="libro" id="libro" class="form-input" placeholder="Ingrese nombre de la libreria"
-               required>
+        <label for="firstName" class="form-label">Ingrese tu nombre </label>
+        <input type="text" name="firstName" id="firs    tName" class="form-input" placeholder="Ingrese nombre" required>
 
-        <input type="submit" value="Enviar" onclick="" class="submit">
+        <label for="lastName" class="form-label">Ingrese tu apellido</label>
+        <input type="text" name="lastName" id="lastName" class="form-input" placeholder="Ingrese apellido" required>
+
+        <label for="selectGen" class="form-label">Selecciona genero <select name="selectGen" id="selectGen"
+                                                                            class="form-selec" required>
+            <option class="form-option"></option>
+            <option class="form-option" value="femenino">Femenino</option>
+            <option class="form-option" value="masculino">Masculino</option>
+        </select></label>
+
+        <label for="date" class="form-label">Ingresa tu fecha de nacimiento</label>
+        <input type="number" name="date" id="date" class="form-input" required>
+
+        <input type="submit" value="Enviar" class="submit">
     </form>
 </div>
-<div id="table-container">
-    <table class="table table-primary table-striped">
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nombre de la libreria</th>
-        </tr>
-        </thead>
-        <tbody id="res"></tbody>
-    </table>
-</div>
-<script type="text/javascript" src="Js/tablaLibrerias.js"></script>
+<script>
+    function red() {
+        location.href = "../webapp/index.html";
+    }
+</script>
 </body>
 </html>

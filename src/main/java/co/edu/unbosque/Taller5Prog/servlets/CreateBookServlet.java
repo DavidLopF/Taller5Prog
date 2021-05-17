@@ -15,14 +15,18 @@ public class CreateBookServlet extends HttpServlet {
 
         response.setContentType("text/html");
 
-        String title = request.getParameter("title");
-        String isbn = request.getParameter("isbn");
-        Integer authorId = Integer.parseInt(request.getParameter("authorId"));
+        int autor = Integer.parseInt(request.getParameter("selectAuthor"));
+        String titulo = request.getParameter("libro");
+        String isb = request.getParameter("isbn");
+        String genero = request.getParameter("selectLibro");
+        String decision = request.getParameter("inlineRadioOptions");
+        String libreria = "auxiliar";
+
 
         BookService bookService = new BookService();
-        bookService.saveBook(title, isbn, authorId);
+        bookService.saveBook(titulo, isb, autor,genero);
 
-        response.sendRedirect("./index.jsp");
+        response.sendRedirect("./crearLibro.html");
 
     }
 
