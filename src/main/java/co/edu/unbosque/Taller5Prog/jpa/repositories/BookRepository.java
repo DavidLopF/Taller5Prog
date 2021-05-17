@@ -19,6 +19,7 @@ public interface BookRepository {
 
     Optional<Book> save(Book book);
 
+    void delete(Integer id);
 
-
+    void modificar(int id, String newName, String newIsbn, String newGener);
 }

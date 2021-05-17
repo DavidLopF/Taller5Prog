@@ -3,6 +3,7 @@ package co.edu.unbosque.Taller5Prog.jpa.repositories;
 import co.edu.unbosque.Taller5Prog.jpa.entities.Edition;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 import java.util.Optional;
 
 public class EditionRepostoryImpl implements EditionRepository {
@@ -24,5 +25,10 @@ public class EditionRepostoryImpl implements EditionRepository {
             e.printStackTrace();
         }
         return Optional.empty();
+    }
+
+    @Override
+    public List<Edition> findAll() {
+        return entityManager.createQuery("FROM Edition").getResultList();
     }
 }

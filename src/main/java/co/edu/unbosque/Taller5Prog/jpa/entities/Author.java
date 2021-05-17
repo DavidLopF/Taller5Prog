@@ -25,16 +25,17 @@ public class Author {
 
     // FetchType.EAGER: When we retrieve a Library, we'll also automatically retrieve all of its corresponding Books
     // CascadeType.ALL: Propagates all operations from Author to Books
-    @OneToMany(mappedBy = "author", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "author", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Book> books = new ArrayList<>();
 
-    public Author() {}
+    public Author() {
+    }
 
     public Author(String name) {
         this.name = name;
     }
 
-    public Author(String name, String country){
+    public Author(String name, String country) {
         this.name = name;
         this.country = country;
     }
@@ -76,4 +77,11 @@ public class Author {
     public void setCountry(String country) {
         this.country = country;
     }
+
+
+    public void deleteBook(Book book) {
+        books.remove(book);
+        book.setAuthor(null);
+    }
+
 }

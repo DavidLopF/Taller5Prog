@@ -62,4 +62,26 @@ public class BookService {
 
     }
 
+    public void deleteBook(Integer id) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        bookRepository = new BookRepositoryImpl(entityManager);
+        bookRepository.delete(id);
+
+        entityManager.close();
+        entityManagerFactory.close();
+    }
+
+    public void modificarLibro(int id, String newName, String newIsbn, String newGener) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        bookRepository = new BookRepositoryImpl(entityManager);
+        bookRepository.modificar(id, newName, newIsbn, newGener);
+
+        entityManager.close();
+        entityManagerFactory.close();
+    }
+
 }
