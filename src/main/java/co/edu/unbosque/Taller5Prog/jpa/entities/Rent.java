@@ -23,9 +23,7 @@ public class Rent {
     @Column(name = "renting_date")
     private String renting_date;
 
-    @ManyToOne
-    @JoinColumn(name = "edition_id")
-    private Edition edition;
+
 
     public Rent() {
 

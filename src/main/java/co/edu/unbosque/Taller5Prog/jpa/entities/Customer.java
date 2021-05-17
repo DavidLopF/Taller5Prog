@@ -29,9 +29,6 @@ public class Customer {
     private int age;
 
 
-    @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Rent> rents = new ArrayList<>();
-
 
     public Customer(String email, String first_name, String last_name, String gender, int age) {
         this.email = email;
@@ -85,8 +82,5 @@ public class Customer {
         this.age = age;
     }
 
-    public void addRent(Rent rent) {
-        rents.add(rent);
-        rent.setCustomer(this);
-    }
+
 }

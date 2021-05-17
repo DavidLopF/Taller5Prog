@@ -1,6 +1,7 @@
 package co.edu.unbosque.Taller5Prog.jpa.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -32,15 +33,11 @@ public class Book {
     private Author author;
 
     @OneToMany(mappedBy = "book", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Edition> edition;
+    private List<Edition> editions = new ArrayList<>();
 
     public Book() {
     }
 
-    public Book(String title, String isbn) {
-        this.title = title;
-        this.isbn = isbn;
-    }
 
     public Book(String title, String isbn, String genre) {
         this.title = title;
@@ -88,17 +85,19 @@ public class Book {
         this.author = author;
     }
 
-    public List<Edition> getEdition() {
-        return edition;
+    public List<Edition> getEditions() {
+        return editions;
     }
 
-    public void setEdition(List<Edition> edition) {
-        this.edition = edition;
+    public void setEditions(List<Edition> editions) {
+        this.editions = editions;
     }
 
     public void addEdition(Edition edition) {
-        this.edition.add(edition);
+        editions.add(edition);
         edition.setBook(this);
     }
+
+
 
 }

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(name = "deleteLibrary", value = "/deleteLibrary")
-public class Deletelibrary extends HttpServlet {
+public class DeletelibraryServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 

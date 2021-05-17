@@ -1,6 +1,7 @@
 package co.edu.unbosque.Taller5Prog.jpa.repositories;
 
 import co.edu.unbosque.Taller5Prog.jpa.entities.Book;
+import co.edu.unbosque.Taller5Prog.jpa.entities.Edition;
 
 
 import java.util.List;
@@ -17,5 +18,7 @@ public interface BookRepository {
     List<Book> findAll();
 
     Optional<Book> save(Book book);
+
+
 
 }

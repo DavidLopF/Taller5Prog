@@ -1,6 +1,8 @@
 package co.edu.unbosque.Taller5Prog.jpa.repositories;
 
 import co.edu.unbosque.Taller5Prog.jpa.entities.Book;
+import co.edu.unbosque.Taller5Prog.jpa.entities.Edition;
+import co.edu.unbosque.Taller5Prog.jpa.entities.Library;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -47,6 +49,7 @@ public class BookRepositoryImpl implements BookRepository {
             e.printStackTrace();
         }
         return Optional.empty();
-    }
 
+
+    }
 }

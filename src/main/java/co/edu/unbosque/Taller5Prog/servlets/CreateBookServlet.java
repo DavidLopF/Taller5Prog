@@ -19,8 +19,7 @@ public class CreateBookServlet extends HttpServlet {
         String titulo = request.getParameter("libro");
         String isb = request.getParameter("isbn");
         String genero = request.getParameter("selectLibro");
-        String decision = request.getParameter("inlineRadioOptions");
-        String libreria = "auxiliar";
+
 
 
         BookService bookService = new BookService();
