@@ -16,6 +16,13 @@ public class Library {
     @Column(name = "name")
     private String name;
 
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @JoinTable(
+            name = "Library_Edition",
+            joinColumns = {@JoinColumn(name = "library_id")},
+            inverseJoinColumns = {@JoinColumn(name = "edition_id")}
+    )
+    private Set<Edition> editions = new HashSet<>();
 
 
     public Library() {

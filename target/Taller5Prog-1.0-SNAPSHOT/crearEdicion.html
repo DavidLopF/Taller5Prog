@@ -57,29 +57,42 @@
     </ul>
 </div>
 <div class="container">
-    <form action="change-edition" class="form">
+    <form action="create-edition" class="form">
         <div class="form-header">
-            <h1 class="form-title">Modificar Edicion</h1>
+            <h1 class="form-title">Crear Edicion</h1>
         </div>
 
-        <label for="selectEdicion" class="form-label">Selecciona edicion a modificar <select name="selectEdicion"
-                                                                                         id="selectEdicion"
-                                                                                         class="form-selec" required>
+        <label for="selectLibro" class="form-label">Selecciona libro <select name="selectLibro" id="selectLibro"
+                                                                             class="form-selec" required>
             <option class="form-option"></option>
         </select></label>
 
-        <label for="description" class="form-label">Ingresa la nueva descripcion de la edicion: </label>
+        <label for="description" class="form-label">Descripcion de la edicion: </label>
         <input type="text" name="description" id="description" class="form-input"
                placeholder="Descripcion de la edicion" required>
 
-        <label for="year" class="form-label">Ingresa el nuevo Año de lanzamiento de la edicion: </label>
+        <label for="year" class="form-label">Año de lanzamiento de la edicion: </label>
         <input type="date" name="year" id="year" class="form-input"
                placeholder="Año de lanzamiento de la edicion" required>
 
-        <input type="submit" value="Enviar"  class="submit">
+        <input type="submit" value="Enviar" onclick="" class="submit">
     </form>
-
 </div>
-<script src="Js/selectEditions.js" type="text/javascript"></script>
+<div id="table-container">
+    <table class="table table-primary table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Libro</th>
+            <th>Descripcion</th>
+            <th>Año de lanzamiento</th>
+        </tr>
+        </thead>
+        <tbody id="tabla-edition"></tbody>
+    </table>
+</div>
+<script src="Js/tablaEdtions.js" type="text/javascript"></script>
+<script src="Js/selectLibro.js" type="text/javascript"></script>
+
 </body>
 </html>
