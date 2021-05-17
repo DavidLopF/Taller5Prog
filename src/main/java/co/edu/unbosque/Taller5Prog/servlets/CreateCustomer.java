@@ -25,7 +25,7 @@ public class CreateCustomer extends HttpServlet {
         customerService.saveCustomer(email, firstName, lastName,gender,age);
 
 
-        response.sendRedirect("index.html");
+        response.sendRedirect("mostrarTablaEdiciones.html");
 
     }
 
