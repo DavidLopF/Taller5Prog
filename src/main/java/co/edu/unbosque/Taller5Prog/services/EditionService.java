@@ -63,4 +63,17 @@ public class EditionService {
 
         return edtionPOJOS;
     }
+
+    public void updateEdition(int id_book, String des, Date year) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        EditionRepostoryImpl editionRepostory = new EditionRepostoryImpl(entityManager);
+        editionRepostory.update(des, year, id_book);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+    }
 }
