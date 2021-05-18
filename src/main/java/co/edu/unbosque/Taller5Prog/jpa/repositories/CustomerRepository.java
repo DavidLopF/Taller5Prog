@@ -3,6 +3,7 @@ package co.edu.unbosque.Taller5Prog.jpa.repositories;
 import co.edu.unbosque.Taller5Prog.jpa.entities.Customer;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface CustomerRepository {
 
@@ -14,4 +15,6 @@ public interface CustomerRepository {
     void delete(String email);
 
     List<Customer> findAll();
+
+    Optional<Customer> findById(String id);
 }
