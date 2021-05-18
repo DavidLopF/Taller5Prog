@@ -152,7 +152,7 @@ thead {
     z-index: 9;
   }
   
-  .form-popup h1 {
+  .form-popup h2 {
     text-align: center;
 }
 
@@ -206,5 +206,11 @@ thead {
 
   .form-container .btn:hover, .open-button:hover {
     opacity: 1;
+  }
+
+  input {
+    border: 0;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, .1);
   }
 

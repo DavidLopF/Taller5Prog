@@ -17,6 +17,7 @@
             <li><a href="index.html">Inicio</a></li>
             <li><a href="">Cliente</a>
                 <ul>
+                    <li><a href="tablaRentasCliente.html">Listado de Rentas</a></li>
                     <li><a href="CreateCustomer.html">Crear Cliente</a></li>
                     <li><a href="ModificateCustomer.html">Modificar Cliente</a></li>
                     <li><a href="DeleteCustomer.html">Eliminar Cliente</a></li>
@@ -75,6 +76,7 @@
                     <th>Año de Lanzamiento</th>
                     <th>Rentar Edicion</th>
                     <th>Asociar Edicion</th>
+                    <th>Desasociar Edicion</th>
                 </tr>
             </thead>
             <tbody id="res">
@@ -82,10 +84,13 @@
                 <td></td>
                 <td> </td>
                 <td>
-                    <button type="button" class="btn btn-primary" onclick="openForm()"><i class="far fa-eye"></i></button>
+                    <button type="button" class="btn btn-primary" onclick="openForm(document.getElementById('myForm').id)"><i class="far fa-eye"></i></button>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-primary" onclick="openformLibrary()"><i class="far fa-eye"></i></button>
+                    <button type="button" class="btn btn-primary" onclick="openForm(document.getElementById('formlibrary').id)"><i class="far fa-eye"></i></button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary" onclick="openForm(document.getElementById('formL').id)"><i class="far fa-eye"></i></button>
                 </td>
             </tbody>
         </table>
@@ -105,35 +110,44 @@
           
           <button type="submit" class="btn">Rentar libro!</button>
       
-          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+          <button type="button" class="btn cancel" onclick="closeForm(document.getElementById('myForm').id)">Close</button>
         </form>
       </div>
+
       <div class="form-popup" id="formlibrary">
         <form action="" class="form-container">
-          <h1>Agregar Edicion a una libreria</h1>
+          <h2>Asociar Edicion a una libreria</h2>
 
           <label for="selectLibrary" class="selectLibrary">Selecciona libreria<select name="selectLibrary" id="selectLibrary" class="selectL" required>
             <option class="form-option"></option>
             <option class="form-option">ejemplo</option>
         </select></label>
           <button type="submit" class="btn">Agregar Edicion a la libreria!</button>
-          <button type="button" class="btn cancel" onclick="closeFormLibrary()">Close</button>
+          <button type="button" class="btn cancel" onclick="closeForm(document.getElementById('formlibrary').id)">Close</button>
+        </form>
+      </div>
+
+      <div class="form-popup" id="formL">
+        <form action="" class="form-container">
+          <h2>Desasociar Edicion de una libreria</h2>
+
+          <label for="selectLibrary" class="selectLibrary">Selecciona libreria<select name="selectLibrary" id="selectLibrary" class="selectL" required>
+            <option class="form-option"></option>
+            <option class="form-option">ejemplo</option>
+        </select></label>
+          <button type="submit" class="btn">Desasociar Edicion de la libreria!</button>
+          <button type="button" class="btn cancel" onclick="closeForm(document.getElementById('formL').id)">Close</button>
         </form>
       </div>
 
       <script>
-      function openForm() {
-        document.getElementById("myForm").style.display = "block";
+      function openForm(id) {
+        document.getElementById(id).style.display = "block";
       }
-      function closeForm() {
-        document.getElementById("myForm").style.display = "none";
+      function closeForm(id) {
+        document.getElementById(id).style.display = "none";
       }
-      function openformLibrary(){
-          document.getElementById("formlibrary").style.display = "block";
-      }
-      function closeFormLibrary() {
-        document.getElementById("formlibrary").style.display = "none";
-      }
+     
 </script>
 
 </body>
