@@ -11,14 +11,17 @@ function tomarGson(){
                      <td>${data[i].edition_id}</td>
                      <td>${data[i].desc}</td>
                      <td>${year}</td>
-                     <td>
-                <button type="button" class="btn btn-primary" onclick="openForm()"><i class="far fa-eye"></i></button>
-            </td>
-            <td>
-                <button type="button" class="btn btn-primary" onclick="openformLibrary()"><i class="far fa-eye"></i></button>
-            </td>
+                  <td>
+                <button type="button" class="btn btn-primary" onclick="openForm(document.getElementById('myForm').id)"><i class="far fa-eye"></i></button>
+                 </td>
+                <td>
+                <button type="button" class="btn btn-primary" onclick="openForm(document.getElementById('formlibrary').id)"><i class="far fa-eye"></i></button>
+                 </td>
+                <td>
+                <button type="button" class="btn btn-primary" onclick="openForm(document.getElementById('formL').id)"><i class="far fa-eye"></i></button>
+                </td>
                 </tr>
-                `
+                  `
             }
 
         }
@@ -26,6 +29,12 @@ function tomarGson(){
     xhr.open('GET', 'http://localhost:8080/Taller5Prog-1.0-SNAPSHOT/listOneEdition', true);
     xhr.send(null)
 
+}
+function openForm(id) {
+    document.getElementById(id).style.display = "block";
+}
+function closeForm(id) {
+    document.getElementById(id).style.display = "none";
 }
 tomarGson()
 
