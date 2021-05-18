@@ -8,25 +8,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "createCustomer", value = "/createCustomer")
-public class CreateCustomer extends HttpServlet {
+@WebServlet(name = "changeCustomer", value = "change-customer")
+public class ChangeCustomerServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         response.setContentType("text/html");
 
-        String email = request.getParameter("email");
+        String id_email = request.getParameter("selectCusto");
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
-        String gender = request.getParameter("selectGen");
-        int age = Integer.parseInt(request.getParameter("date"));
+        String genero = request.getParameter("selectGen");
+        int age = Integer.parseInt(request.getParameter("age"));
 
         CustomerService customerService = new CustomerService();
-        customerService.saveCustomer(email, firstName, lastName,gender,age);
+        customerService.UpdateCustomer(id_email, firstName, lastName, genero, age);
 
-
-        response.sendRedirect("mostrarTablaEdiciones.html");
-
+        response.sendRedirect("CreateCustomer.html");
     }
-
 }

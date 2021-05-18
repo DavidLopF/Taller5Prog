@@ -4,6 +4,7 @@ import co.edu.unbosque.Taller5Prog.jpa.entities.Book;
 import co.edu.unbosque.Taller5Prog.jpa.entities.Edition;
 
 import javax.persistence.EntityManager;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,5 +36,34 @@ public class EditionRepostoryImpl implements EditionRepository {
     @Override
     public List<Edition> findAll() {
         return entityManager.createQuery("FROM Edition").getResultList();
+    }
+
+    public Optional<Edition> update(String desc, Date date, int id) {
+        Edition edition = entityManager.find(Edition.class, id);
+        try {
+            entityManager.getTransaction().begin();
+            edition.setDescription(desc);
+            edition.setReleaseYear(date);
+            entityManager.getTransaction().commit();
+            return Optional.of(edition);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Optional.empty();
+    }
+
+
+    public Optional<Edition> delete(int id) {
+        Edition edition = entityManager.find(Edition.class, id);
+        Book book = edition.getBook();
+        try {
+            entityManager.getTransaction().begin();
+            book.deleteEdition(edition);
+            entityManager.getTransaction().commit();
+            return Optional.of(edition);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Optional.empty();
     }
 }

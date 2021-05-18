@@ -83,4 +83,29 @@ public class EditionService {
 
         return edtionPOJOS;
     }
+
+    public void updateEdition(int id_book, String des, Date year) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        editionRepository = new EditionRepostoryImpl(entityManager);
+        editionRepository.update(des, year, id_book);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+    }
+
+    public void deleteBy(int id) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        editionRepository = new EditionRepostoryImpl(entityManager);
+        editionRepository.delete(id);
+
+        entityManager.close();
+        entityManagerFactory.close();
+    }
 }

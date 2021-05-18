@@ -62,13 +62,13 @@ ul, ol {
 
 .container {
     width: 100%;
-    max-width: 1500px;
+    max-width: 2000px;
     height: 400px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin: auto;
-    margin-top: 200px;
+    margin-top: 170px;
 }
 
 .container .card {
