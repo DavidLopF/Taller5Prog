@@ -4,6 +4,7 @@ import co.edu.unbosque.Taller5Prog.jpa.entities.Author;
 import co.edu.unbosque.Taller5Prog.jpa.entities.Book;
 import co.edu.unbosque.Taller5Prog.jpa.repositories.AuthorRepositoryImpl;
 import co.edu.unbosque.Taller5Prog.jpa.repositories.BookRepositoryImpl;
+import co.edu.unbosque.Taller5Prog.servlets.pojos.AuthorPOJO;
 import co.edu.unbosque.Taller5Prog.servlets.pojos.BookPOJO;
 
 import javax.ejb.Stateless;
@@ -21,6 +22,19 @@ public class BookService {
     BookRepositoryImpl bookRepository;
     EditionService editionService;
 
+    public List<BookPOJO> listOneBook(int id){
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        bookRepository = new BookRepositoryImpl(entityManager);
+        List<Book> books = bookRepository.findOneById(id);
+        entityManager.close();
+        entityManagerFactory.close();
+
+        List<BookPOJO> booksPOJO = new ArrayList<>();
+
+        booksPOJO.add(new BookPOJO(books.get(0).getBookId(),books.get(0).getTitle(),books.get(0).getIsbn(),books.get(0).getGenre()));
+        return booksPOJO;
+    }
 
     public List<BookPOJO> listBooks() {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
