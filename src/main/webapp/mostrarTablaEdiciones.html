@@ -57,12 +57,11 @@
     <div class="container">
         <form action="" class="form">
             <h1 class="title">Listado de Ediciones segun un libro:</h1>
-            <label for="filtrar" class="label"></label>
             <label for="selectLibro" class="form-label">Selecciona libro<select name="selectLibro" id="selectLibro" class="form-selec" required>
                 <option class="form-option"></option>
                 <option class="form-option">ejemplo</option>
             </select></label>
-            <input type="submit" value="Enviar" onclick="" class="submit">
+            <input type="button" value="Enviar" onclick="tomarGson()"  class="submit">
     </form>
     
     </div>
@@ -120,7 +119,7 @@
           <button type="button" class="btn cancel" onclick="closeFormLibrary()">Close</button>
         </form>
       </div>
-
+        <script src="Js/selectLibro.js"></script>
       <script>
       function openForm() {
         document.getElementById("myForm").style.display = "block";
@@ -135,6 +134,7 @@
         document.getElementById("formlibrary").style.display = "none";
       }
 </script>
+<script type="text/javascript" src="Js/modificarTabla.js"></script>
 
 </body>
 

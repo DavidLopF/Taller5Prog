@@ -21,6 +21,8 @@ public class AuthorRepositoryImpl implements AuthorRepository {
         return entityManager.createQuery("from Author").getResultList();
     }
 
+
+
     public Optional<Author> findByName(String name) {
         Author author = entityManager.createNamedQuery("Author.findByName", Author.class)
                 .setParameter("name", name)

@@ -22,6 +22,10 @@ public class BookRepositoryImpl implements BookRepository {
         return book != null ? Optional.of(book) : Optional.empty();
     }
 
+    public List<Book> findOneById(int id){
+        return entityManager.createQuery("from Book where bookId = "+id).getResultList();
+    }
+
     public Optional<Book> findByTitle(String title) {
         Book book = entityManager.createQuery("SELECT b FROM Book b WHERE b.title = :title", Book.class)
                 .setParameter("title", title)
