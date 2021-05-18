@@ -22,11 +22,9 @@ public class Library {
             joinColumns = {@JoinColumn(name = "library_id")},
             inverseJoinColumns = {@JoinColumn(name = "edition_id")}
     )
-
     private Set<Edition> editions = new HashSet<>();
 
 
-    private Set<Edition> editions = new HashSet<>();
 
 
     public Library() {

@@ -29,9 +29,6 @@ public class Edition {
     @JoinColumn(name = "book_id")
     private Book book;
 
-    @ManyToMany(mappedBy = "editions", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-    private Set<Library> libraries = new HashSet<>();
-
 
     public Edition() {
     }
