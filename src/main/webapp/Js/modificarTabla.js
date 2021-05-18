@@ -1,4 +1,4 @@
-function tomarGson(){
+function tomarGson() {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
@@ -6,13 +6,13 @@ function tomarGson(){
             var cuerpo = document.getElementById("res")
             for (let i = 0; i < data.length; i++) {
                 var year = data[i].release_year.substr(0, 12)
-                cuerpo.innerHTML +=`
+                cuerpo.innerHTML += `
                 <tr>
                      <td>${data[i].edition_id}</td>
                      <td>${data[i].desc}</td>
                      <td>${year}</td>
                   <td>
-                <button type="button" class="btn btn-primary" onclick="openForm(document.getElementById('myForm').id)"><i class="far fa-eye"></i></button>
+                <button type="button" id="boton${i}" name="${data[i].edition_id}" class="btn btn-primary" onclick="openForm(document.getElementById('myForm').id , ${"boton" + i} )"><i class="far fa-eye"></i></button>
                  </td>
                 <td>
                 <button type="button" class="btn btn-primary" onclick="openForm(document.getElementById('formlibrary').id)"><i class="far fa-eye"></i></button>
@@ -30,12 +30,18 @@ function tomarGson(){
     xhr.send(null)
 
 }
-function openForm(id) {
+
+function openForm(id, boton) {
     document.getElementById(id).style.display = "block";
+    if (id == "myForm") {
+        console.log(boton)
+    }
 }
+
 function closeForm(id) {
     document.getElementById(id).style.display = "none";
 }
+
 tomarGson()
 
 

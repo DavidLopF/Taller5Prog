@@ -58,66 +58,33 @@
 </div>
 <div class="container">
     <form action="createCookeLibrary" class="form">
+      
         <h1 class="title">Listado de Ediciones segun un libro:</h1>
         <label for="selectLibro" class="label"></label>
         <label for="selectLibro" class="form-label">Selecciona libro<select name="selectLibro" id="selectLibro"
                                                                             class="form-selec" required>
             <option class="form-option"></option>
+            <option class="form-option">ejemplo</option>
         </select></label>
         <input type="submit" value="Enviar" class="submit">
     </form>
-
-
 </div>
-<div class="form-popup" id="myForm">
-    <form action="" class="form-container">
-        <h1>Rentar un Libro</h1>
-
-        <label for="selectCusto" class="selectLibrary">Correo de quien esta rentando: <select
-                name="selectCusto" id="selectCusto" class="selectL" required>
-            <option class="form-option"></option>
-        </select></label>
-
-        <label><b>ID Edicion: </b></label>
-
-        <label for="date"><b>Selecciona la fecha en la que estas rentando la edicion: </b></label>
-        <input type="date" id="date" name="date">
-
-
-        <button type="submit" class="btn">Rentar libro!</button>
-
-        <button type="button" class="btn cancel" onclick="closeForm(document.getElementById('myForm').id)">Close
-        </button>
-    </form>
-</div>
-
-
-<div class="form-popup" id="formL">
-    <form action="" class="form-container">
-        <h2>Desasociar Edicion de una libreria</h2>
-
-        <label for="selectLibrary" class="selectLibrary">Selecciona libreria<select name="selectLibrary"
-                                                                                    id="selectLibrary" class="selectL"
-                                                                                    required>
-            <option class="form-option"></option>
-            <option class="form-option">ejemplo</option>
-        </select></label>
-        <button type="submit" class="btn">Desasociar Edicion de la libreria!</button>
-        <button type="button" class="btn cancel" onclick="closeForm(document.getElementById('formL').id)">Close</button>
-    </form>
-</div>
-<script>
-    function openForm(id) {
-        document.getElementById(id).style.display = "block";
-    }
-
-    function closeForm(id) {
-        document.getElementById(id).style.display = "none";
-    }
-</script>
 <script src="Js/selectLibro.js"></script>
 
+            <input type="submit" value="Enviar" onclick="" class="submit">
+    </form>
+    
+    </div>
+
+
+
+
+
+
+<script type="text/javascript" src="Js/modificarTabla.js"></script>
+
 <script src="Js/selectCustomer.js" type="text/javascript"></script>
+
 </body>
 
 </html>
