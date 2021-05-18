@@ -25,10 +25,6 @@ public class Library {
 
     private Set<Edition> editions = new HashSet<>();
 
-
-    private Set<Edition> editions = new HashSet<>();
-
-
     public Library() {
     }
 
