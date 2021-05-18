@@ -3,6 +3,7 @@ package co.edu.unbosque.Taller5Prog.jpa.repositories;
 import co.edu.unbosque.Taller5Prog.jpa.entities.Customer;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 public class CustomerImplement implements CustomerRepository {
 
@@ -32,5 +33,10 @@ public class CustomerImplement implements CustomerRepository {
     @Override
     public void delete(String email) {
 
+    }
+
+    @Override
+    public List<Customer> findAll() {
+        return entityManager.createQuery("FROM Customer ").getResultList();
     }
 }
