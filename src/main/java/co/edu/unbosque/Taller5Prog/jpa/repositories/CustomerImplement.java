@@ -27,12 +27,38 @@ public class CustomerImplement implements CustomerRepository {
 
     @Override
     public void update(String email, String first_name, String last_name, String gender, int age) {
-
+        Customer customer = entityManager.find(Customer.class, email);
+        try {
+            entityManager.getTransaction().begin();
+            customer.setFirst_name(first_name);
+            customer.setLast_name(last_name);
+            customer.setGender(gender);
+            customer.setAge(age);
+            entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
 
     @Override
     public void delete(String email) {
+        Customer customer = entityManager.find(Customer.class, email);
+        try {
+            entityManager.getTransaction().begin();
 
+            customer.getRents().forEach(rent -> {
+                        entityManager.remove(rent);
+                    }
+            );
+
+            entityManager.remove(customer);
+            entityManager.getTransaction().commit();
+
+            entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

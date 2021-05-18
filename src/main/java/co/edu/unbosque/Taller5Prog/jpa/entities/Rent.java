@@ -15,7 +15,6 @@ public class Rent {
     @Column(name = "rent_id")
     private int rent_id;
 
-
     @ManyToOne
     @JoinColumn(name = "email")
     private Customer customer;

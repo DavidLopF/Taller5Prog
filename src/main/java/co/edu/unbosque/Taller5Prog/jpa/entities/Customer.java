@@ -28,6 +28,8 @@ public class Customer {
     @Column(name = "age")
     private int age;
 
+    @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Rent> rents = new ArrayList<>();
 
 
     public Customer(String email, String first_name, String last_name, String gender, int age) {
@@ -82,5 +84,11 @@ public class Customer {
         this.age = age;
     }
 
+    public List<Rent> getRents() {
+        return rents;
+    }
 
+    public void setRents(List<Rent> rents) {
+        this.rents = rents;
+    }
 }
