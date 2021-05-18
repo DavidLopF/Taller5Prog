@@ -9,9 +9,10 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <link rel="stylesheet" href="Css/mostrarTabla.css">
+    <link rel="stylesheet" href="Css/crearAuthor.css">
     <title>Libreria 4 patas</title>
 </head>
+
 <body>
 <div id="header">
     <ul class="nav">
@@ -57,17 +58,56 @@
     </ul>
 </div>
 <div class="container">
-    <form action="createCookeLibrary" class="form">
-        <h1 class="title">Listado de Ediciones segun un libro:</h1>
-        <label for="selectLibro" class="label"></label>
-        <label for="selectLibro" class="form-label">Selecciona libro<select name="selectLibro" id="selectLibro"
-                                                                            class="form-selec" required>
+    <form action="create-book" class="form">
+        <div class="form-header">
+            <h1 class="form-title">Crear Libro</h1>
+        </div>
+        <label for="selectLibro" class="form-label">Selecciona author <select name="selectAuthor" id="selectAuthor"
+                                                                              class="form-selec" required>
             <option class="form-option"></option>
+            <option class="form-option">ejemplo</option>
         </select></label>
-        <input type="submit" value="Enviar" class="submit">
+
+        <label for="libro" class="form-label">Ingrese el título del libro:</label>
+        <input type="text" name="libro" id="libro" class="form-input" placeholder="Ingrese el titulo del libro"
+               required>
+
+        <label for="isbn" class="form-label">Ingrese el ISBN del libro:</label>
+        <input type="number" name="isbn" id="isbn" class="form-input" placeholder="Ingrese el ISBN del libro" required>
+
+        <label for="selectLibro" class="form-label">Selecciona el genero del libro <select name="selectLibro"
+                                                                                           id="selectLibro"
+                                                                                           class="form-selec" required>
+            <option class="form-option"></option>
+            <option class="form-option">Cientificos</option>
+            <option class="form-option">Literatura y lingüísticos</option>
+            <option class="form-option">De Viaje</option>
+            <option class="form-option">Biografías</option>
+            <option class="form-option">Libro de Texto</option>
+            <option class="form-option">De referencia o consulta</option>
+            <option class="form-option">Monografías</option>
+            <option class="form-option">Recreativos</option>
+            <option class="form-option">Poéticos</option>
+            <option class="form-option">Juveniles</option>
+        </select></label>
+
+        <input type="submit" value="Enviar" onclick="" class="submit">
     </form>
 </div>
-<script src="Js/selectLibro.js"></script>
+<div id="table-container">
+    <table class="table table-primary table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titulo</th>
+            <th>ISBN</th>
+            <th>Genero</th>
+        </tr>
+        </thead>
+        <tbody id="res"></tbody>
+    </table>
+</div>
+<script src="Js/tablaModificarAutor.js"></script>
+<script src="Js/tablaCrearLibro.js"></script>
 </body>
-
 </html>

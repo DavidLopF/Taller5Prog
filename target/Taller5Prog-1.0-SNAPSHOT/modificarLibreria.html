@@ -9,10 +9,12 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <link rel="stylesheet" href="Css/mostrarTabla.css">
+    <link rel="stylesheet" href="Css/crearAuthor.css">
     <title>Libreria 4 patas</title>
 </head>
+
 <body>
+
 <div id="header">
     <ul class="nav">
         <li><a href="index.html">Inicio</a></li>
@@ -57,17 +59,26 @@
     </ul>
 </div>
 <div class="container">
-    <form action="createCookeLibrary" class="form">
-        <h1 class="title">Listado de Ediciones segun un libro:</h1>
-        <label for="selectLibro" class="label"></label>
-        <label for="selectLibro" class="form-label">Selecciona libro<select name="selectLibro" id="selectLibro"
-                                                                            class="form-selec" required>
+    <form action="modificarLibreria" class="form">
+        <div class="form-header">
+            <h1 class="form-title">Modificar Libreria</h1>
+        </div>
+
+        <label for="selectLibreria" class="form-label">Selecciona la libreria a Modificar<select name="selectLibreria"
+                                                                                                 id="selectLibreria"
+                                                                                                 class="form-selec"
+                                                                                                 required>
             <option class="form-option"></option>
         </select></label>
-        <input type="submit" value="Enviar" class="submit">
+
+        <label for="libreria" class="form-label">Ingrese el nuevo nombre de la Libreria:</label>
+        <input type="text" name="libreria" id="libreria" class="form-input" placeholder="Ingrese el titulo del libro"
+               required>
+
+
+        <input type="submit" value="Enviar" onclick="" class="submit">
     </form>
 </div>
-<script src="Js/selectLibro.js"></script>
+<script type="text/javascript" src="Js/selectLibreria.js"></script>
 </body>
-
 </html>
