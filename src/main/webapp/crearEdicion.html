@@ -58,7 +58,7 @@
     </ul>
 </div>
 <div class="container">
-    <form action="createEdition" class="form">
+    <form action="create-edition" class="form">
         <div class="form-header">
             <h1 class="form-title">Crear Edicion</h1>
         </div>
@@ -72,8 +72,8 @@
         <input type="text" name="description" id="description" class="form-input"
                placeholder="Descripcion de la edicion" required>
 
-        <label for="lastName" class="form-label">Año de lanzamiento de la edicion: </label>
-        <input type="number" name="lastName" id="lastName" class="form-input"
+        <label for="year" class="form-label">Año de lanzamiento de la edicion: </label>
+        <input type="date" name="year" id="year" class="form-input"
                placeholder="Año de lanzamiento de la edicion" required>
 
         <input type="submit" value="Enviar" onclick="" class="submit">
@@ -89,9 +89,11 @@
             <th>Año de lanzamiento</th>
         </tr>
         </thead>
-        <tbody id="res"></tbody>
+        <tbody id="tabla-edition"></tbody>
     </table>
 </div>
+<script src="Js/tablaEdtions.js" type="text/javascript"></script>
 <script src="Js/selectLibro.js" type="text/javascript"></script>
+
 </body>
 </html>

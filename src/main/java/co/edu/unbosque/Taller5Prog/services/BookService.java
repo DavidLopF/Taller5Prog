@@ -4,6 +4,7 @@ import co.edu.unbosque.Taller5Prog.jpa.entities.Author;
 import co.edu.unbosque.Taller5Prog.jpa.entities.Book;
 import co.edu.unbosque.Taller5Prog.jpa.repositories.AuthorRepositoryImpl;
 import co.edu.unbosque.Taller5Prog.jpa.repositories.BookRepositoryImpl;
+import co.edu.unbosque.Taller5Prog.servlets.pojos.AuthorPOJO;
 import co.edu.unbosque.Taller5Prog.servlets.pojos.BookPOJO;
 
 import javax.ejb.Stateless;
@@ -19,9 +20,23 @@ public class BookService {
 
     AuthorRepositoryImpl authorRepository;
     BookRepositoryImpl bookRepository;
+    EditionService editionService;
 
+    public List<BookPOJO> listOneBook(int id){
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        bookRepository = new BookRepositoryImpl(entityManager);
+        List<Book> books = bookRepository.findOneById(id);
+        entityManager.close();
+        entityManagerFactory.close();
 
-    public List<BookPOJO> listBooks(){
+        List<BookPOJO> booksPOJO = new ArrayList<>();
+
+        booksPOJO.add(new BookPOJO(books.get(0).getBookId(),books.get(0).getTitle(),books.get(0).getIsbn(),books.get(0).getGenre()));
+        return booksPOJO;
+    }
+
+    public List<BookPOJO> listBooks() {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
@@ -34,13 +49,22 @@ public class BookService {
         List<BookPOJO> booksPOJO = new ArrayList<>();
 
         for (Book book : books) {
-            booksPOJO.add(new BookPOJO(book.getBookId(),book.getTitle(),book.getIsbn(), book.getGenre()));
+            booksPOJO.add(new BookPOJO(book.getBookId(), book.getTitle(), book.getIsbn(), book.getGenre()));
         }
 
         return booksPOJO;
     }
 
-    public void saveBook(String title, String isbn, Integer authorId,String genero) {
+    public Optional<Book> findByTitle(String title){
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        bookRepository = new BookRepositoryImpl(entityManager);
+        Optional<Book> book =bookRepository.findByTitle(title);
+        return book;
+    }
+
+    public void saveBook(String title, String isbn, Integer authorId, String genero) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -59,6 +83,28 @@ public class BookService {
 
         return;
 
+    }
+
+    public void deleteBook(Integer id) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        bookRepository = new BookRepositoryImpl(entityManager);
+        bookRepository.delete(id);
+
+        entityManager.close();
+        entityManagerFactory.close();
+    }
+
+    public void modificarLibro(int id, String newName, String newIsbn, String newGener) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        bookRepository = new BookRepositoryImpl(entityManager);
+        bookRepository.modificar(id, newName, newIsbn, newGener);
+
+        entityManager.close();
+        entityManagerFactory.close();
     }
 
 }

@@ -1,6 +1,9 @@
 package co.edu.unbosque.Taller5Prog.jpa.repositories;
 
+import co.edu.unbosque.Taller5Prog.jpa.entities.Author;
 import co.edu.unbosque.Taller5Prog.jpa.entities.Book;
+import co.edu.unbosque.Taller5Prog.jpa.entities.Edition;
+import co.edu.unbosque.Taller5Prog.jpa.entities.Library;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -17,6 +20,10 @@ public class BookRepositoryImpl implements BookRepository {
     public Optional<Book> findById(Integer id) {
         Book book = entityManager.find(Book.class, id);
         return book != null ? Optional.of(book) : Optional.empty();
+    }
+
+    public List<Book> findOneById(int id){
+        return entityManager.createQuery("from Book where bookId = "+id).getResultList();
     }
 
     public Optional<Book> findByTitle(String title) {
@@ -47,6 +54,45 @@ public class BookRepositoryImpl implements BookRepository {
             e.printStackTrace();
         }
         return Optional.empty();
+
+
     }
+
+    @Override
+    public void delete(Integer id){
+        Book bookAux = entityManager.find(Book.class,id);
+        Author autor = bookAux.getAuthor();
+        if(autor!=null){
+            try{
+                entityManager.getTransaction().begin();
+                autor.deleteBook(bookAux);
+                entityManager.getTransaction().commit();
+
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+
+    public void modificar(int id,String newName, String newIsbn, String newGener){
+        Book bookAux = entityManager.find(Book.class,id);
+        if(bookAux!=null){
+            try {
+                entityManager.getTransaction().begin();
+                bookAux.setTitle(newName);
+                bookAux.setIsbn(newIsbn);
+                bookAux.setGenre(newGener);
+                entityManager.getTransaction().commit();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+
+            }
+        }
+
+    }
+
 
 }

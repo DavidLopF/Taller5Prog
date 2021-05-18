@@ -15,7 +15,6 @@ public class Rent {
     @Column(name = "rent_id")
     private int rent_id;
 
-
     @ManyToOne
     @JoinColumn(name = "email")
     private Customer customer;
@@ -23,9 +22,7 @@ public class Rent {
     @Column(name = "renting_date")
     private String renting_date;
 
-    @ManyToOne
-    @JoinColumn(name = "edition_id")
-    private Edition edition;
+
 
     public Rent() {
 

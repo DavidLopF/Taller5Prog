@@ -28,8 +28,7 @@ public class Customer {
     @Column(name = "age")
     private int age;
 
-
-    @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Rent> rents = new ArrayList<>();
 
 
@@ -85,8 +84,11 @@ public class Customer {
         this.age = age;
     }
 
-    public void addRent(Rent rent) {
-        rents.add(rent);
-        rent.setCustomer(this);
+    public List<Rent> getRents() {
+        return rents;
+    }
+
+    public void setRents(List<Rent> rents) {
+        this.rents = rents;
     }
 }

@@ -63,6 +63,9 @@ public class LibraryService {
         libraryRepository = new LibraryRepositoryImpl(entityManager);
         libraryRepository.modificar(id, nombre);
 
+        entityManager.close();
+        entityManagerFactory.close();
+
     }
 
     public void deleteLibrary(int id){
@@ -71,6 +74,9 @@ public class LibraryService {
 
         libraryRepository = new LibraryRepositoryImpl(entityManager);
         libraryRepository.delete(id);
+
+        entityManager.close();
+        entityManagerFactory.close();
 
     }
 
