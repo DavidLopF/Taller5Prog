@@ -11,6 +11,7 @@ import co.edu.unbosque.Taller5Prog.servlets.pojos.EdtionPOJO;
 import com.google.gson.Gson;
 
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,15 +23,15 @@ public class ListOneEditionServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         response.setContentType("application/json");
-       // response.setContentType("text/html");
+
         response.setCharacterEncoding("UTF-8");
-        int bookId = Integer.parseInt(request.getParameter("selectEdtion2"));
+        Cookie[] cookies = request.getCookies();
+        int bookId = Integer.parseInt(cookies[0].getValue());
 
         EditionService editionService = new EditionService();
         List<EdtionPOJO> edition = editionService.findEditionByBookId(bookId);
         PrintWriter out = response.getWriter();
         String booksJsonString = new Gson().toJson(edition);
-
         out.print(booksJsonString);
         out.flush();
     }
