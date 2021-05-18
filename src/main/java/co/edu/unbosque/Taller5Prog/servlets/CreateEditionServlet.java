@@ -35,7 +35,6 @@ public class CreateEditionServlet extends HttpServlet {
 
         EditionService service = new EditionService();
         service.saveEdition(description, date, id_book);
-
         response.sendRedirect("index.html");
 
 
