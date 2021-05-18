@@ -73,90 +73,14 @@
     </form>
     
     </div>
-    <div id="table-container">
-        <table class="table table-primary table-striped">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Descripcion</th>
-                    <th>Año de Lanzamiento</th>
-                    <th>Rentar Edicion</th>
-                    <th>Asociar Edicion</th>
-                    <th>Desasociar Edicion</th>
-                </tr>
-            </thead>
-            <tbody id="res">
-                <td></td>
-                <td></td>
-                <td> </td>
-                <td>
-                    <button type="button" class="btn btn-primary" onclick="openForm(document.getElementById('myForm').id)"><i class="far fa-eye"></i></button>
-                </td>
-                <td>
-                    <button type="button" class="btn btn-primary" onclick="openForm(document.getElementById('formlibrary').id)"><i class="far fa-eye"></i></button>
-                </td>
-                <td>
-                    <button type="button" class="btn btn-primary" onclick="openForm(document.getElementById('formL').id)"><i class="far fa-eye"></i></button>
-                </td>
-            </tbody>
-        </table>
-    </div>
-    <div class="form-popup" id="myForm">
-        <form action="" class="form-container">
-          <h1>Rentar un Libro</h1>
-      
-          <label for="selectCusto" class="selectLibrary">Correo de quien esta rentando: <select
-            name="selectCusto" id="selectCusto" class="selectL" required>
-        <option class="form-option"></option>
-      
-          <label for="psw"><b>ID Edicion: </b></label>
-      
-          <label for="date"><b>Selecciona la fecha en la que estas rentando la edicion: </b></label>
-          <input type ="date" id="date" name="date">
-      
-          
-          <button type="submit" class="btn">Rentar libro!</button>
-      
-          <button type="button" class="btn cancel" onclick="closeForm(document.getElementById('myForm').id)">Close</button>
-        </form>
-      </div>
 
-      <div class="form-popup" id="formlibrary">
-        <form action="" class="form-container">
-          <h2>Asociar Edicion a una libreria</h2>
 
-          <label for="selectLibrary" class="selectLibrary">Selecciona libreria<select name="selectLibrary" id="selectLibrary" class="selectL" required>
-            <option class="form-option"></option>
-            <option class="form-option">ejemplo</option>
-        </select></label>
-          <button type="submit" class="btn">Agregar Edicion a la libreria!</button>
-          <button type="button" class="btn cancel" onclick="closeForm(document.getElementById('formlibrary').id)">Close</button>
-        </form>
-      </div>
 
-      <div class="form-popup" id="formL">
-        <form action="" class="form-container">
-          <h2>Desasociar Edicion de una libreria</h2>
 
-          <label for="selectLibrary" class="selectLibrary">Selecciona libreria<select name="selectLibrary" id="selectLibrary" class="selectL" required>
-            <option class="form-option"></option>
-            <option class="form-option">ejemplo</option>
-        </select></label>
-          <button type="submit" class="btn">Desasociar Edicion de la libreria!</button>
-          <button type="button" class="btn cancel" onclick="closeForm(document.getElementById('formL').id)">Close</button>
-        </form>
-      </div>
-      <script>
-      function openForm(id) {
-        document.getElementById(id).style.display = "block";
-      }
-      function closeForm(id) {
-        document.getElementById(id).style.display = "none";
-      }
-     </script>
+
 <script src="Js/selectLibro.js"></script>
 
-  
+
 <script type="text/javascript" src="Js/modificarTabla.js"></script>
 
 <script src="Js/selectCustomer.js" type="text/javascript"></script>

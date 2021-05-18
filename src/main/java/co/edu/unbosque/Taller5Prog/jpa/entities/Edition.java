@@ -16,9 +16,6 @@ public class Edition {
     @Column(name = "edition_id")
     private Integer editionId;
 
-    @ManyToMany(mappedBy = "editions", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-    private Set<Library> libraries = new HashSet<>();
-
     @Column(name = "description")
     private String description;
 
