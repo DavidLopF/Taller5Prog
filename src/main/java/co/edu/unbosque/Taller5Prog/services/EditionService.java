@@ -40,6 +40,26 @@ public class EditionService {
         entityManagerFactory.close();
     }
 
+    public List<EdtionPOJO> findEditionByBookId(int id){
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        editionRepository = new EditionRepostoryImpl(entityManager);
+        List<Edition> edition = editionRepository.findOneById(id);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        List<EdtionPOJO> edtionPOJOS = new ArrayList<>();
+        for (Edition e : edition) {
+            edtionPOJOS.add(new EdtionPOJO(e.getEditionId(),e.getDescription(),e.getReleaseYear(),id,e.getBook().getTitle()));
+        }
+      //  edtionPOJOS.remove(1);
+
+
+        return edtionPOJOS;
+    }
+
     public List<EdtionPOJO> listEditions() {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
