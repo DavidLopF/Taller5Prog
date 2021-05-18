@@ -34,7 +34,11 @@ function tomarGson() {
 function openForm(id, boton) {
     document.getElementById(id).style.display = "block";
     if (id == "myForm") {
-        console.log(boton)
+        var label = document.getElementById("edicion")
+        label.innerHTML = `
+       
+              <option class="form-option" value="${boton.name}">${boton.name}</option>
+            `
     }
 }
 

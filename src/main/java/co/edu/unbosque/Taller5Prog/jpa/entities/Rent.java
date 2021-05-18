@@ -1,6 +1,9 @@
 package co.edu.unbosque.Taller5Prog.jpa.entities;
 
 import javax.persistence.*;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "rents") // Optional
@@ -20,12 +23,19 @@ public class Rent {
     private Customer customer;
 
     @Column(name = "renting_date")
-    private String renting_date;
+    private Date renting_date;
 
+    @ManyToOne
+    @JoinColumn(name = "edition_id")
+    private Edition edition;
 
 
     public Rent() {
 
+    }
+
+    public Rent(Date fecha) {
+        this.renting_date = fecha;
     }
 
     public int getRent_id() {
@@ -44,11 +54,19 @@ public class Rent {
         this.customer = customer;
     }
 
-    public String getRenting_date() {
+    public Date getRenting_date() {
         return renting_date;
     }
 
-    public void setRenting_date(String renting_date) {
+    public void setRenting_date(Date renting_date) {
         this.renting_date = renting_date;
+    }
+
+    public Edition getEdition() {
+        return edition;
+    }
+
+    public void setEdition(Edition edition) {
+        this.edition = edition;
     }
 }

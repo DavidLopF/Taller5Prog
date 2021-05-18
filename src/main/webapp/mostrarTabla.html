@@ -73,7 +73,7 @@
 </div>
 
 <div class="form-popup" id="myForm">
-    <form action="" class="form-container">
+    <form action="create-rent" class="form-container">
         <h1>Rentar un Libro</h1>
 
         <label for="selectCusto" class="selectLibrary">Correo de quien esta rentando: <select
@@ -81,7 +81,9 @@
             <option class="form-option"></option>
         </select></label>
 
-        <label id="labelEdition"></label>
+        <label for="edicion" class="selectLibrary">Edicion Id: <select name="edicion" id="edicion" class="form-selec"
+                                                                       required>
+        </select></label>
 
         <label for="date"><b>Selecciona la fecha en la que estas rentando la edicion: </b></label>
         <input type="date" id="date" name="date">

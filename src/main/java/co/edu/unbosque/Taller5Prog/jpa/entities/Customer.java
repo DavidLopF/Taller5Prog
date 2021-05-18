@@ -91,4 +91,11 @@ public class Customer {
     public void setRents(List<Rent> rents) {
         this.rents = rents;
     }
+
+    public void addRent(Rent rent, Edition edition) {
+        rents.add(rent);
+        edition.getRents().add(rent);
+        rent.setEdition(edition);
+        rent.setCustomer(this);
+    }
 }
