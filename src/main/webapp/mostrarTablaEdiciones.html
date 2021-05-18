@@ -57,13 +57,18 @@
         </ul>
     </div>
     <div class="container">
-        <form action="" class="form">
+        <form action="createCookeLibrary" class="form">
             <h1 class="title">Listado de Ediciones segun un libro:</h1>
             <label for="filtrar" class="label"></label>
             <label for="selectLibro" class="form-label">Selecciona libro<select name="selectLibro" id="selectLibro" class="form-selec" required>
                 <option class="form-option"></option>
                 <option class="form-option">ejemplo</option>
             </select></label>
+            <input type="submit" value="Enviar" class="submit">
+    </form>
+    
+    </div>
+<script src="Js/selectLibro.js"></script>
             <input type="submit" value="Enviar" onclick="" class="submit">
     </form>
     
@@ -141,7 +146,6 @@
           <button type="button" class="btn cancel" onclick="closeForm(document.getElementById('formL').id)">Close</button>
         </form>
       </div>
-
       <script>
       function openForm(id) {
         document.getElementById(id).style.display = "block";

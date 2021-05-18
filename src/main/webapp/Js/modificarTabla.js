@@ -11,6 +11,12 @@ function tomarGson(){
                      <td>${data[i].edition_id}</td>
                      <td>${data[i].desc}</td>
                      <td>${year}</td>
+                     <td>
+                <button type="button" class="btn btn-primary" onclick="openForm()"><i class="far fa-eye"></i></button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary" onclick="openformLibrary()"><i class="far fa-eye"></i></button>
+            </td>
                 </tr>
                 `
             }
@@ -21,5 +27,6 @@ function tomarGson(){
     xhr.send(null)
 
 }
+tomarGson()
 
 
