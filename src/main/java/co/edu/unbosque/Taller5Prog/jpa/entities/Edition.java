@@ -57,7 +57,6 @@ public class Edition {
         this.description = description;
     }
 
-
     public Date getReleaseYear() {
         return releaseYear;
     }

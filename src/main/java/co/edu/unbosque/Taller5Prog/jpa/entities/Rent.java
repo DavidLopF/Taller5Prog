@@ -23,7 +23,7 @@ public class Rent {
     private Customer customer;
 
     @Column(name = "renting_date")
-    private Date renting_date;
+    private String renting_date;
 
     @ManyToOne
     @JoinColumn(name = "edition_id")
@@ -34,7 +34,7 @@ public class Rent {
 
     }
 
-    public Rent(Date fecha) {
+    public Rent(String fecha) {
         this.renting_date = fecha;
     }
 
@@ -54,11 +54,11 @@ public class Rent {
         this.customer = customer;
     }
 
-    public Date getRenting_date() {
+    public String getRenting_date() {
         return renting_date;
     }
 
-    public void setRenting_date(Date renting_date) {
+    public void setRenting_date(String renting_date) {
         this.renting_date = renting_date;
     }
 
