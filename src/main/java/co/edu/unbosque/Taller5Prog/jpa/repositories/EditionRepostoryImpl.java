@@ -31,12 +31,6 @@ public class EditionRepostoryImpl implements EditionRepository {
         return Optional.empty();
     }
 
-
-
-    public List<Edition> findOneById(int id){
-        return entityManager.createQuery("from Edition where book.id = "+id).getResultList();
-    }
-
     public void agregarEdicionLibreria(int editionId, int libraryId){
         Edition edition = entityManager.find(Edition.class,editionId);
         Library libreria = entityManager.find(Library.class, libraryId);
