@@ -1,5 +1,6 @@
 package co.edu.unbosque.Taller5Prog.jpa.repositories;
 
+import co.edu.unbosque.Taller5Prog.jpa.entities.Author;
 import co.edu.unbosque.Taller5Prog.jpa.entities.Book;
 import co.edu.unbosque.Taller5Prog.jpa.entities.Edition;
 import co.edu.unbosque.Taller5Prog.jpa.entities.Library;
@@ -66,9 +67,20 @@ public class EditionRepostoryImpl implements EditionRepository {
 
     }
 
+    public List<Edition> findOneById(int id) {
+        return entityManager.createQuery("from Edition where book.id = " + id).getResultList();
+    }
+
     @Override
     public List<Edition> findAll() {
         return entityManager.createQuery("FROM Edition").getResultList();
+    }
+
+    @Override
+    public Edition findById(Integer id) {
+        Edition edition = entityManager.find(Edition.class, id);
+        return edition;
+
     }
 
     public Optional<Edition> update(String desc, Date date, int id) {

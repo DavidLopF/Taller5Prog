@@ -4,6 +4,7 @@ import co.edu.unbosque.Taller5Prog.jpa.entities.Customer;
 
 import javax.persistence.EntityManager;
 import java.util.List;
+import java.util.Optional;
 
 public class CustomerImplement implements CustomerRepository {
 
@@ -64,5 +65,11 @@ public class CustomerImplement implements CustomerRepository {
     @Override
     public List<Customer> findAll() {
         return entityManager.createQuery("FROM Customer ").getResultList();
+    }
+
+    @Override
+    public Optional<Customer> findById(String id) {
+        Customer customer = entityManager.find(Customer.class, id);
+        return customer != null ? Optional.of(customer) : Optional.empty();
     }
 }

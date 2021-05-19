@@ -71,14 +71,68 @@
     
     </div>
 
+<div id="header">
+    <ul class="nav">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="">Cliente</a>
+            <ul>
+                <li><a href="tablaRentasCliente.html">Listado de Rentas</a></li>
+                <li><a href="CreateCustomer.html">Crear Cliente</a></li>
+                <li><a href="ModificateCustomer.html">Modificar Cliente</a></li>
+                <li><a href="DeleteCustomer.html">Eliminar Cliente</a></li>
+            </ul>
+        </li>
+        <li><a href="">Author</a>
+            <ul>
+                <li><a href="crearAuthor.html">Crear Author</a></li>
+                <li><a href="modificarAuthor.html">Modificar Author</a></li>
+                <li><a href="eliminarAuthor.html">Eliminar Author</a></li>
+                </li>
+            </ul>
+        </li>
+        <li><a href="">Libro</a>
+            <ul>
+                <li><a href="crearLibro.html">Crear Libro</a></li>
+                <li><a href="modificarLibro.html">Modificar Libro</a></li>
+                <li><a href="eliminarLibro.html">Eliminar Libro</a></li>
+            </ul>
+        </li>
+        <li><a href="">Edicion</a>
+            <ul>
+                <li><a href="mostrarTablaEdiciones.html">Lista de Ediciones</a></li>
+                <li><a href="crearEdicion.html">Crear Edicion</a></li>
+                <li><a href="modificarEdicion.html">Modificar Edicion</a></li>
+                <li><a href="eliminarEdicion.html">Eliminar Edicion</a></li>
+            </ul>
+        </li>
+        <li><a href="">Libreria</a>
+            <ul>
+                <li><a href="crearLibreria.html">Crear Libreria</a></li>
+                <li><a href="modificarLibreria.html">Modificar Libreria</a></li>
+                <li><a href="eliminarLibreria.html">Eliminar Libreria</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class="container">
+    <form action="createCookeLibrary" class="form">
 
-
-
-
+        <h1 class="title">Listado de Ediciones segun un libro:</h1>
+        <label for="selectLibro" class="label"></label>
+        <label for="selectLibro" class="form-label">Selecciona libro<select name="selectLibro" id="selectLibro"
+                                                                            class="form-selec" required>
+            <option class="form-option"></option>
+            <option class="form-option">ejemplo</option>
+        </select></label>
+        <input type="submit" value="Enviar" class="submit">
+    </form>
+</div>
+<script src="Js/selectLibro.js"></script>
 
 <script type="text/javascript" src="Js/modificarTabla.js"></script>
 
 <script src="Js/selectCustomer.js" type="text/javascript"></script>
+
 </body>
 
 </html>

@@ -18,16 +18,18 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+
 @WebServlet(name = "listOneEdition", value = "/listOneEdition")
 public class ListOneEditionServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
+
         response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
 
         response.setCharacterEncoding("UTF-8");
         Cookie[] cookies = request.getCookies();
         int bookId = Integer.parseInt(cookies[0].getValue());
-
         EditionService editionService = new EditionService();
         List<EdtionPOJO> edition = editionService.findEditionByBookId(bookId);
         PrintWriter out = response.getWriter();

@@ -29,6 +29,8 @@ public class Edition {
     @ManyToMany(mappedBy = "editions", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private Set<Library> libraries = new HashSet<>();
 
+    @OneToMany(mappedBy = "edition", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Rent> rents = new ArrayList<>();
 
     public Edition() {
     }
@@ -74,7 +76,6 @@ public class Edition {
         this.description = description;
     }
 
-
     public Date getReleaseYear() {
         return releaseYear;
     }
@@ -91,9 +92,21 @@ public class Edition {
         this.book = book;
     }
 
+    public Set<Library> getLibraries() {
+        return libraries;
+    }
 
+    public void setLibraries(Set<Library> libraries) {
+        this.libraries = libraries;
+    }
 
+    public List<Rent> getRents() {
+        return rents;
+    }
 
+    public void setRents(List<Rent> rents) {
+        this.rents = rents;
+    }
 }
 
 
