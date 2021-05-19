@@ -12,18 +12,15 @@ function tomarGson() {
                      <td>${data[i].desc}</td>
                      <td>${year}</td>
                   <td>
-
-                <button type="button"  value="${data[i].edition_id}" class="btn btn-primary" onclick="openForm(document.getElementById('myForm').id,${data[i].edition_id})"><i class="far fa-eye"></i></button>
-
-                <button type="button" id="boton${i}" name="${data[i].edition_id}" class="btn btn-primary" onclick="openForm(document.getElementById('myForm').id , ${"boton" + i} )"><i class="far fa-eye"></i></button>
+                <button type="button" id="boton${i}" name="${data[i].edition_id}" class="btn btn-primary" onclick="openForm(document.getElementById('myForm').id , ${"boton" + i},${data[i].edition_id} )"><i class="far fa-eye"></i></button>
                  </td>
                 <td>
                 <form action="asociarLibrary">
-                    <button type="button" value="${data[i].edition_id}" id="id" name="id" class="btn btn-primary" onclick="openForm(document.getElementById('formlibrary').id,${data[i].edition_id} )"><i class="far fa-eye"></i></input>
+                    <button type="button" value="${data[i].edition_id}" id="id" name="id" class="btn btn-primary" onclick="openForm(document.getElementById('formlibrary').id,null,${data[i].edition_id} )"><i class="far fa-eye"></i></input>
                 </form>
                  </td>
                 <td>
-                <button type="button" value="${data[i].edition_id}" class="btn btn-primary"  onclick="openForm(document.getElementById('formL').id,${data[i].edition_id})"><i class="far fa-eye"></i></button>
+                <button type="button" value="${data[i].edition_id}" class="btn btn-primary"  onclick="openForm(document.getElementById('formL').id,null,${data[i].edition_id})"><i class="far fa-eye"></i></button>
                 </td>
                 </tr>
                   `
@@ -36,14 +33,9 @@ function tomarGson() {
 
 }
 
-function openForm(id, id2) {
+function openForm(id, boton,id2) {
     document.getElementById(id).style.display = "block";
     document.cookie = "idBook = "+encodeURIComponent(id2);
-}
-function closeForm(id, id2) {
-
-function openForm(id, boton) {
-    document.getElementById(id).style.display = "block";
     if (id == "myForm") {
         var label = document.getElementById("edicion")
         label.innerHTML = `
@@ -51,7 +43,9 @@ function openForm(id, boton) {
               <option class="form-option" value="${boton.name}">${boton.name}</option>
             `
     }
+
 }
+
 
 function closeForm(id) {
     document.getElementById(id).style.display = "none";
