@@ -39,6 +39,29 @@ public class EditionService {
         entityManager.close();
         entityManagerFactory.close();
     }
+    public void agregarEdicionLibreria(int editionId, int libraryId){
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        editionRepository = new EditionRepostoryImpl(entityManager);
+        editionRepository.agregarEdicionLibreria(editionId,libraryId);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+    }
+
+    public void desasociarEdicionLibreria(int editionId, int libraryId){
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        editionRepository = new EditionRepostoryImpl(entityManager);
+        editionRepository.desasociarEdicionLibreria(editionId,libraryId);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+    }
 
     public List<EdtionPOJO> findEditionByBookId(int id){
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
@@ -83,6 +106,9 @@ public class EditionService {
 
         return edtionPOJOS;
     }
+
+
+
 
     public void updateEdition(int id_book, String des, Date year) {
 
