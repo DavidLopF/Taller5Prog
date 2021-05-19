@@ -39,6 +39,25 @@ public class Edition {
         this.releaseYear = releaseYear;
     }
 
+    public void addLibrary(Library library){
+        libraries.add(library);
+        library.addEdition(this);
+    }
+
+    public void removeLibrary(Library library){
+        boolean bandera = false;
+        for(Library l:libraries){
+            if(l.getLibraryId()==library.getLibraryId()){
+                bandera = true;
+                break;
+            }
+        }
+        if(bandera){
+            libraries.remove(library);
+            library.removeEdition(this);
+        }
+    }
+
     public Integer getEditionId() {
         return editionId;
     }

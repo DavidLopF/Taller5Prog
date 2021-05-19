@@ -92,10 +92,10 @@
     </div>
 
     <div class="form-popup" id="formlibrary">
-        <form action="" class="form-container">
+        <form action="asociarLibrary" class="form-container">
             <h2>Asociar Edicion a una libreria</h2>
 
-            <label for="selectLibrary" class="selectLibrary">Selecciona libreria<select name="selectLibrary" id="selectLibrary" class="selectL" required>
+            <label for="selectLibreria" class="selectLibreria">Selecciona libreria<select name="selectLibreria" id= "selectLibreria" class="selectL" required>
                 <option class="form-option"></option>
                 <option class="form-option">ejemplo</option>
             </select></label>
@@ -105,10 +105,9 @@
     </div>
 
     <div class="form-popup" id="formL">
-        <form action="" class="form-container">
+        <form action="desasociarLibrary" class="form-container">
             <h2>Desasociar Edicion de una libreria</h2>
-
-            <label for="selectLibrary" class="selectLibrary">Selecciona libreria<select name="selectLibrary" id="selectLibrary" class="selectL" required>
+            <label for="selectLibreria" class="selectLibreria">Selecciona libreria<select name="selectLibreria" id= "selectLibreria2" class="selectLibreria" required>
                 <option class="form-option"></option>
                 <option class="form-option">ejemplo</option>
             </select></label>
@@ -116,9 +115,9 @@
             <button type="button" class="btn cancel" onclick="closeForm(document.getElementById('formL').id)">Close</button>
         </form>
     </div>
+    <script src="Js/selectLibreria.js"></script>
+    <script src="Js/selectLibreria2.js"></script>
     <script src="Js/modificarTabla.js"></script>
-
-
 </body>
 
 </html>

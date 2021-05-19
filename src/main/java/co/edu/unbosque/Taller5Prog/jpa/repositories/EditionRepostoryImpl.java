@@ -2,6 +2,7 @@ package co.edu.unbosque.Taller5Prog.jpa.repositories;
 
 import co.edu.unbosque.Taller5Prog.jpa.entities.Book;
 import co.edu.unbosque.Taller5Prog.jpa.entities.Edition;
+import co.edu.unbosque.Taller5Prog.jpa.entities.Library;
 
 import javax.persistence.EntityManager;
 import java.util.Date;
@@ -29,8 +30,40 @@ public class EditionRepostoryImpl implements EditionRepository {
         return Optional.empty();
     }
 
+
+
     public List<Edition> findOneById(int id){
         return entityManager.createQuery("from Edition where book.id = "+id).getResultList();
+    }
+
+    public void agregarEdicionLibreria(int editionId, int libraryId){
+        Edition edition = entityManager.find(Edition.class,editionId);
+        Library libreria = entityManager.find(Library.class, libraryId);
+
+        try {
+            entityManager.getTransaction().begin();
+            edition.addLibrary(libreria);
+            entityManager.getTransaction().commit();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void desasociarEdicionLibreria(int editionId, int libraryId){
+        Edition edition = entityManager.find(Edition.class,editionId);
+        Library libreria = entityManager.find(Library.class, libraryId);
+
+        try {
+            entityManager.getTransaction().begin();
+            edition.removeLibrary(libreria);
+            entityManager.getTransaction().commit();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override

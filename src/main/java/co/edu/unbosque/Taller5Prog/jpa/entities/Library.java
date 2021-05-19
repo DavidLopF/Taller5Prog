@@ -33,6 +33,14 @@ public class Library {
         this.name = name;
     }
 
+    public void addEdition(Edition edition){
+        editions.add(edition);
+    }
+
+    public void removeEdition(Edition edition){
+        editions.remove(edition);
+    }
+
     public Library(String name) {
         this.name = name;
     }
