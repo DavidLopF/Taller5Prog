@@ -1,9 +1,11 @@
 package co.edu.unbosque.Taller5Prog.jpa.repositories;
 
+import co.edu.unbosque.Taller5Prog.jpa.entities.Customer;
 import co.edu.unbosque.Taller5Prog.jpa.entities.Rent;
 
 import javax.persistence.EntityManager;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 public class RentRepositoryImpl implements RentRepository {
@@ -25,5 +27,11 @@ public class RentRepositoryImpl implements RentRepository {
             e.printStackTrace();
         }
         return Optional.empty();
+    }
+
+    @Override
+    public List<Rent> findByCustomer(String email) {
+        Customer customer = entityManager.find(Customer.class, email);
+        return customer.getRents();
     }
 }

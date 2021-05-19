@@ -22,16 +22,10 @@ public class CreateRentServlet extends HttpServlet {
         String id_customer = request.getParameter("selectCusto");
         String year = request.getParameter("date");
         SimpleDateFormat format = new SimpleDateFormat("yyyy");
-        Date date = null;
-        try {
-            date = format.parse(year);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
 
 
         RentService rentService = new RentService();
-        rentService.saveRent(id_customer, id_edicion, date);
+        rentService.saveRent(id_customer, id_edicion, year);
 
         response.sendRedirect("tablaRentasCliente.html");
     }
