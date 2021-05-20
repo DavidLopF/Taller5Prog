@@ -17,13 +17,17 @@ public class DesasociarLibraryServlet extends HttpServlet {
         response.setContentType("text/html");
         Cookie[] cookies = request.getCookies();
 
-        int idEdicion =Integer.parseInt(cookies[1].getValue());
-
+        int idEdicion = 0;
+        for (int i = 0; i < cookies.length; i++) {
+            if (cookies[i].getName().equals("idBook")) {
+                idEdicion = Integer.parseInt(cookies[i].getValue());
+            }
+        }
         int idLibreria = Integer.parseInt(request.getParameter("selectLibreria"));
 
 
         EditionService editionService = new EditionService();
-        editionService.desasociarEdicionLibreria(idEdicion,idLibreria);
+        editionService.desasociarEdicionLibreria(idEdicion, idLibreria);
 
         response.sendRedirect("mostrarTablaEdiciones.html");
 

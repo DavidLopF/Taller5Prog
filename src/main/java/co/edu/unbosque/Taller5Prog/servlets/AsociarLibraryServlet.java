@@ -16,14 +16,19 @@ public class AsociarLibraryServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
         Cookie[] cookies = request.getCookies();
+        int idEdicion = 0;
+        for (int i = 0; i < cookies.length; i++) {
+            if (cookies[i].getName().equals("idBook")) {
+                idEdicion = Integer.parseInt(cookies[i].getValue());
+            }
+        }
 
-        int idEdicion =Integer.parseInt(cookies[1].getValue());
 
         int idLibreria = Integer.parseInt(request.getParameter("selectLibreria"));
 
 
         EditionService editionService = new EditionService();
-        editionService.agregarEdicionLibreria(idEdicion,idLibreria);
+        editionService.agregarEdicionLibreria(idEdicion, idLibreria);
 
         response.sendRedirect("mostrarTablaEdiciones.html");
 

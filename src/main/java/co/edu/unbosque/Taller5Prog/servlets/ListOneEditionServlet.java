@@ -23,13 +23,16 @@ import java.util.List;
 public class ListOneEditionServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
-        response.setCharacterEncoding("UTF-8");
         Cookie[] cookies = request.getCookies();
-        int bookId = Integer.parseInt(cookies[0].getValue());
+        int bookId = 0;
+        for (int i = 0; i < cookies.length; i++) {
+            if (cookies[i].getName().equals("bookId")) {
+                bookId = Integer.parseInt(cookies[i].getValue());
+            }
+        }
         EditionService editionService = new EditionService();
         List<EdtionPOJO> edition = editionService.findEditionByBookId(bookId);
         PrintWriter out = response.getWriter();
@@ -37,5 +40,6 @@ public class ListOneEditionServlet extends HttpServlet {
         out.print(booksJsonString);
         out.flush();
     }
+
 
 }

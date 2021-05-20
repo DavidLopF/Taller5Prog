@@ -31,6 +31,17 @@ public class ListRentsOfCustomer extends HttpServlet {
         String email_customer = cookies[2].getValue();
         String hsta = cookies[3].getValue();
 
+        for (int i = 0; i < cookies.length; i++) {
+            if (cookies[i].getName().equals("email_customer")) {
+                email_customer = cookies[i].getValue();
+            } else if (cookies[i].getName().equals("desde")) {
+                desde = cookies[i].getValue();
+            } else if (cookies[i].getName().equals("hasta")) {
+                hsta = cookies[i].getValue();
+            }
+        }
+
+
         RentService rentService = new RentService();
         List<RentPOJO> rentPOJOList = rentService.listRentsByCustomer(email_customer, desde, hsta);
 
